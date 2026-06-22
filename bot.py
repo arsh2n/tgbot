@@ -34,7 +34,7 @@ OPTION_QR = {
 }
 
 # ── Conversation states ────────────────────────────────────────────────────────
-CHOOSE_OPTION, = range(1)
+CHOOSE_OPTION, AWAIT_BACK = range(2)
 
 # ── Option definitions ─────────────────────────────────────────────────────────
 OPTION_KEYS = list("ACDEFGHIJKLMN")
@@ -155,13 +155,22 @@ async def cb_option(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     else:
         await context.bot.send_message(chat_id, payment_text, parse_mode="Markdown")
 
-    return ConversationHandler.END   # no further steps needed
+    return AWAIT_BACK   # no further steps needed
 
 
 async def cmd_cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await update.message.reply_text("Session cancelled. Type /start to begin again.")
     return ConversationHandler.END
-
+    
+async def cb_back(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    q = update.callback_query
+    await q.answer()
+    try:
+        await q.delete_message()
+    except Exception:
+        pass
+    await send_catalogue(q.from_user.id, context)
+    return CHOOSE_OPTION
 
 # ── App entry point ────────────────────────────────────────────────────────────
 
@@ -173,6 +182,9 @@ def main() -> None:
         states={
             CHOOSE_OPTION: [
                 CallbackQueryHandler(cb_option, pattern=r"^opt:"),
+            ],
+            AWAIT_BACK: [
+                CallbackQueryHandler(cb_back, pattern=r"^back$"),
             ],
         },
         fallbacks=[CommandHandler("cancel", cmd_cancel)],
