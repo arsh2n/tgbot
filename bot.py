@@ -136,8 +136,8 @@ async def cb_option(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         f"💳 *Payment — {name}*\n\n"
         f"Amount: *{price}*\n\n"
         f"Please scan the QR code below to pay via *Paytm / UPI*.\n\n"
-        f"⏳ Once you've paid, please wait — your payment will be "
-        f"reviewed and approved manually. You'll be notified once it's confirmed. ✅"
+        f"⏳ Please wait for you payment to be processed "
+        f"and you will be redirected automatically ✅"
     )
 
     try:
