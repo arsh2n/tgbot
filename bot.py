@@ -43,15 +43,15 @@ OPTION_NAMES = {
     "A": "Account Credits",
     "C": "Celibrity / MMS Leaks ₹59",
     "D": "Dressing Room Cam Leaks ₹29",
-    "E": "Girlfriend Ke Bachpan Dosti Ke Saath ₹42",
+    "E": "Girlfriend Ke Bachpan \nDosti Ke Saath ₹42",
     "F": "Desi Foriegn Combo ₹29",
     "G": "Dark Web Combo ₹45",
     "H": "Girlfriend Boyfriend Leaks ₹59",
     "I": "F0rced R@pe ₹69",
     "J": "Ch!ld P0rn ₹69",
     "K": "Padosi Aunty Ki Acche Bacha ₹55",
-    "L": "Mobile Store Service Boy Stolen Collection ₹35",
-    "M": "Hotel Receptionist Ladki / Indigo Airhostess ₹39",
+    "L": "Mobile Store Service Boy \nStolen Collection ₹35",
+    "M": "Hotel Receptionist Ladki \nIndigo Airhostess ₹39",
     "N": "All Premium Bundles ₹199",
 }
 
